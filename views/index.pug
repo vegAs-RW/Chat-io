@@ -1,0 +1,33 @@
+doctype html
+html
+  head
+    title Chat App
+    link(rel='stylesheet', href='/style/style.css')
+    script(src="https://unpkg.com/twemoji@latest/dist/twemoji.min.js" crossorigin="anonymous")
+  body
+    header
+        h1 Chat room with Socket.io
+    main
+        aside.left-sidebar
+            h2 Channels
+            ul#channel-list
+            li.active-channel
+                a.channel-link(href='/', data-channel='general') General
+            li
+                a.channel-link(href='#', data-channel='gaming') Gaming 
+            li
+                a.channel-link(href='/random-channel', data-channel='random') Random
+        section#chat
+            form#message-form
+                input#message-input(type='text', placeholder='Tapez votre message ici ...')
+                button(type='submit') Envoyer
+            div#emoji-bar
+            div#messages
+                ul#messages-list
+            div#writing
+        aside.right-sidebar
+            h2 Users
+            ul#user-list
+        
+    script(src='/socket.io/socket.io.js')
+    script(src='/scripts/app.js')
